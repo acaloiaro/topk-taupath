@@ -10,7 +10,9 @@ Many variable and function names refer to Joe Verducci and Srinath Sampath's ori
 
 # Current Status 
 
-As of 2019-7-13, the code here is very much a work in progress. Documentation is either poor or non-existent. Code is not well formatted or clearly lain out. Over time, I will add more langauges and implemtations. The current goal is to make the full R source code available. 
+As of 2019-7-13, the code here is very much a work in progress. Documentation is either poor or non-existent. Code is not well formatted or clearly lain out. Over time, I will add more langauges and implementations. 
+
+The current goal is to make the full R source code available. 
 
 # Todo 
 * Make R _FastBCS_ ✅
