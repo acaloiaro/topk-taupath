@@ -2,6 +2,10 @@
 
 The topk-taupath algorithm described in "The TopK Tau-Path Screen for Monotone Association": https://arxiv.org/pdf/1509.00549.pdf
 
+Caveat: This repository does _not yet_ include the high performance FastBCS2 implementation. The R  codeis forthcoming, and then I'll add Java and Golang as well. Cheers
+
+- AC
+
 # About
 
 The goal of this repository is to provide implementations of the top-k taupath algorithm in multiple langauges. The key algorithm _FastBCS_ (Fast Backward Conditional Search) will be provided in its original form, in addition to the much faster _FastBCS2_. 
