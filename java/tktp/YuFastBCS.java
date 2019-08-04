@@ -1,4 +1,4 @@
-package main;
+package tktp;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -191,5 +191,12 @@ any:
     }
     Collections.sort(previousTies, comparator);
     return previousTies;
+  }
+
+  public static void main(String[] a) {
+      double[] x = { 1, 2, 3, 4 };
+      double[] y = { 1, 2, 3, 4 };
+      YuConcordanceMatrix m = getPi(x, y);
+      System.out.println(m.toTable());
   }
 }
