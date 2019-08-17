@@ -41,7 +41,7 @@ fastbcs <- function(x, y) {
 
     switch <- FALSE
 
-    # detrmine if a forward step is necessary
+    # determine if a forward step is necessary
     if (length(ties.k) > 0) {
       c.i <- concord[pie, pie]
 
