@@ -107,8 +107,12 @@ get.c <- function(x, y) {
 }
 
 # Calculate the cumulative sum
-cumsum.k <- function(vec, lo, hi) {
-  return(c(cumsum = cumsum(vec)[lo:hi]))
+cumsum.k <- function(c, high, low) {
+  if (c[low] == 0) {
+    c[low] <- c[high]
+    c[high] <- 0
+  }
+  return(cumsum(c)[high:low])
 }
 
 # currentStage: the stage being examined
