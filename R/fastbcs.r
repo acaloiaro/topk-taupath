@@ -75,8 +75,6 @@ fastbcs <- function(x, y) {
     # AC (07-20-2019) - I've forgotten a lot about this algorithm; I believe this means the remaining
     # columns are fully concordant and that further iterations would be futile.
     if (sum(concord[pie[1:i], pie[1:i]]) == i * (i - 1)) {
-      pi.halt = pie[1:i]
-
       c.ia = concord[pie, pie]
       permute <- FALSE
     }
