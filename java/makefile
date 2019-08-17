@@ -38,13 +38,13 @@ validate:
 	$(eval X := $(shell Rscript --vanilla ../R/util_get_samples.r $(N)))
 	$(eval Y := $(shell Rscript --vanilla ../R/util_get_samples.r $(N)))
 	$(eval JAVAPI := $(shell java -cp tktp.jar tktp.ValidationHelper FastBCS "$(X)" "$(Y)"))
-	$(eval RPI := $(shell Rscript --vanilla ../R/util_run_fastbcs.r "$(X)" "$(Y)"))
+	$(eval RPI := $(shell Rscript --vanilla ../R/util_run_fastbcs.r "$(X)" "$(Y)" | xargs))
 
 	@echo "$(JAVAPI)"
 	@echo ""
 	@echo "$(RPI)"
 
-	@echo "Equal?" $(shell [[ "$(RPI)" == "$(JAVAPI)" ]] && echo "equal" || echo "not")
+	@echo "validates?" $(shell [[ "$(RPI)" == "$(JAVAPI)" ]] && echo "yes" || echo "no")
 
 validate_java:
 	$(eval X := $(shell Rscript --vanilla ../R/util_get_samples.r $(N)))
@@ -56,4 +56,4 @@ validate_java:
 	@echo ""
 	@echo $(FBCS2PI)
 
-	@echo "Equal?" $(shell [[ "$(YUPI)" == "$(FBCS2PI)" ]] && echo "equal" || echo "not")
+	@echo "validates?" $(shell [[ "$(YUPI)" == "$(FBCS2PI)" ]] && echo "yes" || echo "no")
