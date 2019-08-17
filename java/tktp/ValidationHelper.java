@@ -27,8 +27,8 @@ public final class ValidationHelper {
 
     int[] pi = null;
     switch (a[0]) {
-      case "2": pi = FastBCS2.getPi(x, y).pi();
-      case "YU": pi = YuFastBCS.getPi(x, y).pi();
+      case "FastBCS2": pi = FastBCS2.getPi(x, y).pi();
+      case "FastBCS": pi = FastBCS.getPi(x, y);
     }
 
     System.out.println(Arrays.toString(pi).replace("[", "").replace("]", ""));

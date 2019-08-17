@@ -13,7 +13,7 @@ sub1 <- function(num) {
     return(num-1)
 }
 
-pi <- get.pi3(x,y)
+pi <- fastbcs(x,y)
 pi.sub1 <- sapply(pi, sub1)
 cat(paste(pi.sub1, collapse = ", "), "\n")
 

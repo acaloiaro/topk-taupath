@@ -18,11 +18,9 @@ public class FastBCS {
   // Create an ordered concordance matrix using FastBCS
   public static int[] getPi(double[] x, double[] y) {
     final int N = x.length;
-
-    // Create the concordance matrix with a naturally ordered permutation, i.e. 0 .. N-1. This is the base
-    // from which all permuted concordance matrices are created.
     ConcordanceMatrix cm = ConcordanceMatrix.create(x, y);
     int[] pi = cm.pi();
+
     Vector<Integer>[] ties = (Vector<Integer>[]) new Vector[N];
     int i = N - 1;
     lastTieReset = i;

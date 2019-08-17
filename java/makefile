@@ -37,20 +37,23 @@ run:
 validate:
 	$(eval X := $(shell Rscript --vanilla ../R/util_get_samples.r $(N)))
 	$(eval Y := $(shell Rscript --vanilla ../R/util_get_samples.r $(N)))
-	$(eval JAVAPI := $(shell java -cp tktp.jar tktp.ValidationHelper "$(X)" "$(Y)"))
+	$(eval JAVAPI := $(shell java -cp tktp.jar tktp.ValidationHelper FastBCS "$(X)" "$(Y)"))
 	$(eval RPI := $(shell Rscript --vanilla ../R/util_run_fastbcs.r "$(X)" "$(Y)"))
 
-	@echo "Java"
 	@echo "$(JAVAPI)"
-	@echo "R"
-	@echo "$(RPI)":
-	@echo "$(RPI == JAVAPI)"
+	@echo ""
+	@echo "$(RPI)"
+
+	@echo "Equal?" $(shell [[ "$(RPI)" == "$(JAVAPI)" ]] && echo "equal" || echo "not")
 
 validate_java:
 	$(eval X := $(shell Rscript --vanilla ../R/util_get_samples.r $(N)))
 	$(eval Y := $(shell Rscript --vanilla ../R/util_get_samples.r $(N)))
-	$(eval YUPI := $(shell java -cp tktp.jar tktp.ValidationHelper YU "$(X)" "$(Y)"))
-	$(eval FBCS2PI := $(shell java -cp tktp.jar tktp.ValidationHelper 2 "$(X)" "$(Y)"))
+	$(eval YUPI := $(shell java -cp tktp.jar tktp.ValidationHelper FastBCS "$(X)" "$(Y)"))
+	$(eval FBCS2PI := $(shell java -cp tktp.jar tktp.ValidationHelper FastBCS2 "$(X)" "$(Y)"))
+
 	@echo $(YUPI)
+	@echo ""
 	@echo $(FBCS2PI)
-	@echo "Equal?" $(shell [[ "$(YUPI)" -eq "$(FBCS2PI)" ]] && echo "equal" || echo "not")
+
+	@echo "Equal?" $(shell [[ "$(YUPI)" == "$(FBCS2PI)" ]] && echo "equal" || echo "not")
